@@ -1,0 +1,21 @@
+﻿[package]
+name = "app"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+vietdict-core.workspace = true
+anyhow.workspace = true
+clap.workspace = true
+slint = { version = "1.19", default-features = false, features = ["std", "backend-default", "renderer-software", "compat-1-2"] }
+slint-build = "1.19"
+
+[build-dependencies]
+slint-build = "1.19"
+
+[[bin]]
+name = "vietdict"
+path = "src/main.rs"
+

@@ -1,0 +1,28 @@
+[package]
+name = "vietdict-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Lõi tra cứu từ điển Anh ↔ Việt offline"
+
+[lib]
+name = "vietdict_core"
+
+[dependencies]
+rusqlite.workspace = true
+fst.workspace = true
+memmap2.workspace = true
+unicode-normalization.workspace = true
+thiserror.workspace = true
+
+[dev-dependencies]
+proptest = "1"
+criterion = { version = "0.8", default-features = false }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tempfile = "3"
+
+[[bench]]
+name = "search"
+harness = false

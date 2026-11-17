@@ -1,0 +1,11 @@
+/target
+/data/raw/
+/data/build/
+/dist/
+*.sqlite-wal
+*.sqlite-shm
+.DS_Store
+.env
+*.pem
+*.p12
+*.pfx
