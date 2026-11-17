@@ -82,8 +82,9 @@ pub fn build(records: &[Record], out_dir: &Path, data_version: &str) -> Result<(
         "INSERT INTO meta(key,value) VALUES('sources','OVDP/Hồ Ngọc Đức; CMUdict')",
         [],
     )?;
-    tx.execute_batch("ANALYZE; VACUUM;")?;
-    drop(tx);
+    tx.execute_batch("ANALYZE;")?;
+    tx.commit()?;
+    conn.execute_batch("VACUUM;")?;
     build_fsts(&conn, out_dir).map_err(|e| anyhow::anyhow!(e))?;
     Ok(())
 }
