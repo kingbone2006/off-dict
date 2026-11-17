@@ -1,0 +1,8 @@
+{"headword":"cat","lang":"en","ipa_us":"/kæt/","frequency":1000,"senses":[{"pos":"noun","gloss":"con mèo","examples":[{"src":"The cat is sleeping.","dst":"Con mèo đang ngủ."}]}],"source":"demo"}
+{"headword":"go","lang":"en","frequency":900,"senses":[{"pos":"verb","gloss":"đi; đi đến","examples":[{"src":"I go home.","dst":"Tôi đi về nhà."}]}],"source":"demo"}
+{"headword":"run","lang":"en","ipa_us":"/rʌn/","frequency":800,"senses":[{"pos":"verb","gloss":"chạy; vận hành","examples":[{"src":"They run every morning.","dst":"Họ chạy mỗi sáng."}]}],"source":"demo","inflections":[{"form":"ran","lemma":"run","kind":"past"},{"form":"running","lemma":"run","kind":"ing"}]}
+{"headword":"receive","lang":"en","ipa_us":"/rɪˈsiːv/","frequency":700,"senses":[{"pos":"verb","gloss":"nhận; tiếp nhận","examples":[]}],"source":"demo"}
+{"headword":"child","lang":"en","frequency":600,"senses":[{"pos":"noun","gloss":"đứa trẻ; đứa con","examples":[]}],"source":"demo","inflections":[{"form":"children","lemma":"child","kind":"plural"}]}
+{"headword":"mèo","lang":"vi","frequency":900,"senses":[{"pos":"noun","gloss":"cat","examples":[{"src":"con mèo","dst":"cat"}]}],"source":"demo"}
+{"headword":"con mèo","lang":"vi","frequency":1000,"senses":[{"pos":"noun","gloss":"cat; feline animal","examples":[]}],"source":"demo"}
+{"headword":"đường","lang":"vi","frequency":800,"senses":[{"pos":"noun","gloss":"road; đường đi","examples":[]}],"source":"demo"}

@@ -1,0 +1,88 @@
+import { Button, LineEdit, VerticalBox, HorizontalBox } from "std-widgets.slint";
+
+export component MainWindow inherits Window {
+    title: "VietDict Offline";
+    width: 820px;
+    height: 620px;
+    background: #f5f7fb;
+
+    callback search(string);
+    callback toggle-language();
+
+    in-out property <string> query: "";
+    in-out property <string> language-label: "Anh → Việt";
+    in-out property <string> status: "Sẵn sàng tra cứu offline";
+    in-out property <string> suggestions: "";
+    in-out property <string> detail: "Nhập một từ để bắt đầu.";
+
+    VerticalBox {
+        padding: 28px;
+        spacing: 16px;
+
+        Text {
+            text: "VietDict";
+            font-size: 32px;
+            font-weight: 700;
+            color: #182235;
+        }
+        Text {
+            text: "Từ điển Anh ↔ Việt · chạy hoàn toàn offline";
+            font-size: 15px;
+            color: #526176;
+        }
+
+        HorizontalBox {
+            spacing: 10px;
+            LineEdit {
+                text <=> root.query;
+                placeholder-text: "Nhập từ hoặc cụm từ…";
+                font-size: 18px;
+                edited(text) => { root.search(text); }
+                accepted(text) => { root.search(text); }
+            }
+            Button {
+                text: language-label;
+                clicked => { root.toggle-language(); }
+            }
+            Button {
+                text: "Tra";
+                clicked => { root.search(query); }
+            }
+        }
+
+        Text {
+            text: status;
+            color: #526176;
+            font-size: 13px;
+        }
+
+        Rectangle {
+            background: white;
+            border-color: #dce3ee;
+            border-width: 1px;
+            border-radius: 8px;
+            height: 155px;
+            VerticalBox {
+                padding: 18px;
+                spacing: 8px;
+                Text { text: "Gợi ý"; font-size: 14px; color: #526176; }
+                Text { text: suggestions; font-size: 19px; color: #182235; wrap: word-wrap; }
+            }
+        }
+
+        Rectangle {
+            background: white;
+            border-color: #dce3ee;
+            border-width: 1px;
+            border-radius: 8px;
+            VerticalBox {
+                padding: 18px;
+                spacing: 8px;
+                Text { text: "Kết quả"; font-size: 14px; color: #526176; }
+                Text { text: detail; font-size: 17px; color: #182235; wrap: word-wrap; }
+            }
+        }
+
+        Rectangle { background: transparent; }
+    }
+}

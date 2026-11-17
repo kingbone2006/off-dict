@@ -43,6 +43,11 @@ jobs:
       - uses: Swatinem/rust-cache@v2
         with:
           key: ${{ matrix.target }}
+      - name: Build demo dictionary data
+        shell: bash
+        run: |
+          mkdir -p data/build
+          cargo run -p dict-builder -- sqlite data/demo.jsonl --out data/build --version demo-0.1.0
       - name: Build binary
         run: cargo build --release -p app --target ${{ matrix.target }}
       - name: Package Windows
@@ -52,6 +57,7 @@ jobs:
           New-Item -ItemType Directory -Force dist/VietDict/data | Out-Null
           Copy-Item "target/${{ matrix.target }}/release/${{ matrix.binary }}" dist/VietDict/
           Copy-Item README.md,LICENSE,data/LICENSES.md dist/VietDict/
+          Copy-Item data/build/* dist/VietDict/data/
           Compress-Archive -Path dist/VietDict/* -DestinationPath "dist/${{ matrix.archive }}"
       - name: Package Unix
         if: runner.os != 'Windows'
@@ -60,6 +66,7 @@ jobs:
           mkdir -p dist/VietDict/data
           cp "target/${{ matrix.target }}/release/${{ matrix.binary }}" dist/VietDict/
           cp README.md LICENSE data/LICENSES.md dist/VietDict/
+          cp -r data/build/* dist/VietDict/data/
           tar -C dist -czf "dist/${{ matrix.archive }}" VietDict
       - uses: actions/upload-artifact@v4
         with:
