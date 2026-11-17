@@ -2,6 +2,10 @@
 
 Từ điển Anh ↔ Việt chạy hoàn toàn offline, viết bằng Rust.
 
+## Tải bản build
+
+Vào [Releases](https://github.com/kingbone2006/off-dict/releases) để tải bản portable cho Windows, Linux hoặc macOS. Bản `0.1.0` hiện là bản kỹ thuật đầu tiên; giao diện hoàn chỉnh đang tiếp tục phát triển.
+
 ## Hiện trạng
 
 Đã có lõi tra cứu và công cụ build dữ liệu:
