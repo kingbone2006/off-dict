@@ -59,6 +59,14 @@ jobs:
           Copy-Item README.md,LICENSE,data/LICENSES.md dist/VietDict/
           Copy-Item data/build/* dist/VietDict/data/
           Compress-Archive -Path dist/VietDict/* -DestinationPath "dist/${{ matrix.archive }}"
+      - name: Build Windows installer
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          choco install innosetup --no-progress -y
+          iscc.exe packaging/windows/VietDict.iss
+          Copy-Item dist/VietDict-windows-x64-setup.exe dist/
+
       - name: Package Unix
         if: runner.os != 'Windows'
         shell: bash
@@ -71,7 +79,9 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.name }}
-          path: dist/${{ matrix.archive }}
+          path: |
+            dist/${{ matrix.archive }}
+            dist/VietDict-windows-x64-setup.exe
 
   release:
     name: Publish GitHub Release

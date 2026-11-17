@@ -2,9 +2,21 @@
 
 Từ điển Anh ↔ Việt chạy hoàn toàn offline, viết bằng Rust.
 
-## Tải bản build
+## Tải và cài đặt
 
-Vào [Releases](https://github.com/kingbone2006/off-dict/releases) để tải bản portable cho Windows, Linux hoặc macOS. Bản `0.1.0` hiện là bản kỹ thuật đầu tiên; giao diện hoàn chỉnh đang tiếp tục phát triển.
+Vào [Releases](https://github.com/kingbone2006/off-dict/releases/latest).
+
+### Windows
+
+Tải `VietDict-windows-x64-setup.exe`, mở file và chọn **Install**. VietDict sẽ tạo shortcut trong Start Menu và Desktop; không cần cài Rust, Cargo hay chạy lệnh.
+
+Nếu muốn dùng bản portable, tải `VietDict-windows-x64.zip`, giải nén rồi mở `vietdict.exe`.
+
+### Linux/macOS
+
+Tải gói `.tar.gz`, giải nén và chạy binary `vietdict`.
+
+Bản `0.2.0` là bản GUI native đầu tiên; dữ liệu demo được đóng gói sẵn để người dùng có thể mở và tra cứu ngay.
 
 ## Hiện trạng
 
